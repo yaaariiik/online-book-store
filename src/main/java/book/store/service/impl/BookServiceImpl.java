@@ -1,5 +1,6 @@
 package book.store.service.impl;
 
+import book.store.exception.EntityNotFoundException;
 import book.store.model.Book;
 import book.store.repository.BookRepository;
 import book.store.service.BookService;
@@ -29,7 +30,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findById(Long id) {
         return bookRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Can't find a book by id" + id)
+                () -> new EntityNotFoundException("Can't find a book by id" + id)
         );
     }
 }
