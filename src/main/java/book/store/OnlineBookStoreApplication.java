@@ -30,7 +30,8 @@ public class OnlineBookStoreApplication {
                 theFountainhead.setPrice(BigDecimal.valueOf(396));
 
                 bookService.save(theFountainhead);
-                System.out.println(bookService.findAll());
+                System.out.println("All books: " + bookService.findAll());
+                System.out.println("Book by id: " + bookService.findById(1L));
             }
         };
     }
