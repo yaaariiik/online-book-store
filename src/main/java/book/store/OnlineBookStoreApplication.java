@@ -1,6 +1,6 @@
 package book.store;
 
-import book.store.model.Book;
+import book.store.dto.book.CreateBookRequestDto;
 import book.store.service.BookService;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class OnlineBookStoreApplication {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                Book theFountainhead = new Book();
+                CreateBookRequestDto theFountainhead = new CreateBookRequestDto();
                 theFountainhead.setTitle("Джерело");
                 theFountainhead.setAuthor("Айн Ренд");
                 theFountainhead.setIsbn("9786177279555");
