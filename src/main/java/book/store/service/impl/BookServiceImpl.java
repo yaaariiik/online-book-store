@@ -1,12 +1,14 @@
 package book.store.service.impl;
 
 import book.store.dto.book.BookDto;
+import book.store.dto.book.BookSearchParametersDto;
 import book.store.dto.book.CreateBookRequestDto;
 import book.store.exception.EntityNotFoundException;
 import book.store.mapper.BookMapper;
 import book.store.model.Book;
 import book.store.repository.BookRepository;
 import book.store.service.BookService;
+import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,5 +58,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public void deleteById(Long id) {
         bookRepository.deleteById(id);
+    }
+
+    @Override
+    public List<BookDto> searchByParameters(BookSearchParametersDto searchParameters) {
+        return Collections.emptyList();
     }
 }
