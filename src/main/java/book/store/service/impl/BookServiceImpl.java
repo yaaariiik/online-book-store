@@ -6,7 +6,7 @@ import book.store.dto.book.CreateBookRequestDto;
 import book.store.exception.EntityNotFoundException;
 import book.store.mapper.BookMapper;
 import book.store.model.Book;
-import book.store.repository.BookRepository;
+import book.store.repository.book.BookRepository;
 import book.store.service.BookService;
 import java.util.Collections;
 import java.util.List;
