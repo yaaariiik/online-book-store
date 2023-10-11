@@ -10,5 +10,9 @@ public class CreateBookRequestDto {
     private String isbn;
     private BigDecimal price;
     private String description;
+    private String publisher;
+    private String language;
+    private String genre;
+    private Integer pages;
     private String coverImage;
 }

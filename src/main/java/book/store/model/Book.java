@@ -35,6 +35,14 @@ public class Book {
 
     private String description;
 
+    private String publisher;
+
+    private String language;
+
+    private String genre;
+
+    private Integer pages;
+
     @Column(name = "cover_image")
     private String coverImage;
 
