@@ -7,22 +7,19 @@ import book.store.exception.EntityNotFoundException;
 import book.store.mapper.BookMapper;
 import book.store.model.Book;
 import book.store.repository.book.BookRepository;
+import book.store.repository.book.BookSpecificationBuilder;
 import book.store.service.BookService;
-import java.util.Collections;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
     private final BookMapper bookMapper;
-
-    @Autowired
-    public BookServiceImpl(BookRepository bookRepository, BookMapper bookMapper) {
-        this.bookRepository = bookRepository;
-        this.bookMapper = bookMapper;
-    }
+    private final BookSpecificationBuilder bookSpecificationBuilder;
 
     @Override
     public BookDto save(CreateBookRequestDto requestDto) {
@@ -62,6 +59,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDto> searchByParameters(BookSearchParametersDto searchParameters) {
-        return Collections.emptyList();
+        Specification<Book> bookSpecification = bookSpecificationBuilder.build(searchParameters);
+        return bookRepository.findAll(bookSpecification).stream()
+                .map(bookMapper::toDto)
+                .toList();
     }
 }
