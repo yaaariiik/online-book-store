@@ -11,6 +11,7 @@ public class CreateBookRequestDto {
     private BigDecimal price;
     private String description;
     private String publisher;
+    private Integer publishYear;
     private String language;
     private String genre;
     private Integer pages;
