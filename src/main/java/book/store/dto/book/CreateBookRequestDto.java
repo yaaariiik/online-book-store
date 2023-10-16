@@ -29,7 +29,8 @@ public class CreateBookRequestDto {
 
     @NotNull(message = "Invalid price, should not be null")
     @DecimalMin(value = "0.01", message = "Invalid price. Price can't be less than 0.01")
-    @Digits(integer = 4, fraction = 2)
+    @Digits(integer = 4, fraction = 2, message = "Price value is over the range "
+            + "(expected <4 digits>.<2 digits>)")
     private BigDecimal price;
 
     @Size(min = 5, max = 255, message = "Invalid size of description, "
