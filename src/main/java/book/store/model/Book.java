@@ -37,6 +37,9 @@ public class Book {
 
     private String publisher;
 
+    @Column(name = "publish_year")
+    private Integer publishYear;
+
     private String language;
 
     private String genre;
