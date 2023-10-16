@@ -41,6 +41,9 @@ databaseChangeLog:
                   name: publisher
                   type: varchar(255)
               - column:
+                  name: publish_year
+                  type: int
+              - column:
                   name: language
                   type: varchar(255)
               - column:
